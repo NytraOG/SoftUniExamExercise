@@ -8,10 +8,10 @@ namespace ComponentLibrary
 {
     public class PowerHardware : Hardware
     {
-        public PowerHardware(string name, string type, int maximumCapacity, int maximumMemory)
+        public PowerHardware(string name, int maximumCapacity, int maximumMemory)
         {
             this.Name = name;
-            this.Type = type;
+            this.Type = "Power";
             this.MaximumCapacity = maximumCapacity / 4;
             this.MaximumMemory = maximumMemory + maximumMemory * 3 / 4;
         }

@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpressSoftware.cs" />
-    <Compile Include="Hardware.cs" />
-    <Compile Include="HeavyHardware.cs" />
-    <Compile Include="LightSoftware.cs" />
-    <Compile Include="PowerHardware.cs" />
+    <Compile Include="ComponentManager.cs" />
+    <Compile Include="Software\ExpressSoftware.cs" />
+    <Compile Include="Hardware\Hardware.cs" />
+    <Compile Include="Hardware\HeavyHardware.cs" />
+    <Compile Include="Software\LightSoftware.cs" />
+    <Compile Include="Hardware\PowerHardware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Software.cs" />
+    <Compile Include="Software\Software.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

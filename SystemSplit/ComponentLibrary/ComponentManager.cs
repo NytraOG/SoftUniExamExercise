@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ComponentLibrary
 {
-    class ExpressSoftware
+    public class ComponentManager
     {
+
     }
 }

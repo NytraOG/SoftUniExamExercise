@@ -8,10 +8,10 @@ namespace ComponentLibrary
 {
     public class LightSoftware : Software
     {
-        public LightSoftware(string name, string type, int capacityConsumption, int memoryConsumption)
+        public LightSoftware(string name, int capacityConsumption, int memoryConsumption)
         {
             this.Name = name;
-            this.Type = type;
+            this.Type = "Light";
             this.CapacityConsumption = capacityConsumption + capacityConsumption / 2;
             this.MemoryConsumption = memoryConsumption / 2;
         }
