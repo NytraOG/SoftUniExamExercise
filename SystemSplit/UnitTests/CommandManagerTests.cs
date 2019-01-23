@@ -29,5 +29,23 @@ namespace UnitTests
             Assert.AreEqual(theSystem[0].MaximumCapacity, expectedhardware.MaximumCapacity);
             Assert.AreEqual(theSystem[0].MaximumMemory, expectedhardware.MaximumMemory);
         }
+
+        [TestMethod]
+        public void CheckingValueExtractionForPowerHardware()
+        {
+            //Arrange
+            List<Hardware> theSystem = new List<Hardware>();
+            string inputCommand = "RegisterPowerHardware(HDD, 200, 200)";
+            var expectedHardware = new PowerHardware("HDD", 200, 200);
+
+            //Act
+            var commandManager = new CommandManager();
+            commandManager.RegisterPowerHardware(theSystem,inputCommand);
+
+            //Assert
+            Assert.AreEqual(theSystem[0].Name, expectedHardware.Name);
+            Assert.AreEqual(theSystem[0].MaximumCapacity,expectedHardware.MaximumCapacity);
+            Assert.AreEqual(theSystem[0].MaximumMemory,expectedHardware.MaximumMemory);
+        }
     }
 }
