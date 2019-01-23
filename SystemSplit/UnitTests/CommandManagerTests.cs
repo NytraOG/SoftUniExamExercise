@@ -25,7 +25,9 @@ namespace UnitTests
             commandManager.RegisterHeavyHardware(theSystem, inputCommand);
 
             //Assert
-            Assert.AreEqual(theSystem[0], expectedhardware);
+            Assert.AreEqual(theSystem[0].Name, expectedhardware.Name);
+            Assert.AreEqual(theSystem[0].MaximumCapacity, expectedhardware.MaximumCapacity);
+            Assert.AreEqual(theSystem[0].MaximumMemory, expectedhardware.MaximumMemory);
         }
     }
 }
