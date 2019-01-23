@@ -15,7 +15,7 @@ namespace ComponentLibrary
         {
             var zwischenspeicher = command.Split('(');
             var zwischenspeicher2 = zwischenspeicher[1].Substring(0, zwischenspeicher[1].Length - 1);
-            var splitArray = zwischenspeicher2.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim()).ToArray();
+            var splitArray = zwischenspeicher2.Split(',').Select(s => s.Trim()).ToArray();
 
             var name = splitArray[0];
             int capacity = Convert.ToInt32(splitArray[1]);
@@ -65,14 +65,14 @@ namespace ComponentLibrary
         {
             var zwischenspeicher = command.Split('(');
             var zwischenspeicher2 = zwischenspeicher[1].Substring(0, zwischenspeicher[1].Length - 1);
-            var splitArray = zwischenspeicher2.Split(',').Select(s => s.Trim()).ToArray();
+            var splitArray = zwischenspeicher2.Split(',').ToArray();
 
             var name = splitArray[0];
             var nameHardware = splitArray[1];
             var capacity = Convert.ToInt32(splitArray[2]);
             var memory = Convert.ToInt32(splitArray[3]);
 
-            if (system.Any(x => x.Name == nameHardware))
+            if (system.Any(s => s.Name == nameHardware))
             {
                 var hardware = system.First(x => x.Name == nameHardware);
 
@@ -113,9 +113,13 @@ namespace ComponentLibrary
 
         public void Analyze(List<Hardware.Hardware> system)
         {
+            Console.Clear();
+
             Console.WriteLine($"  \tSystem Analysis:" +
                               $"\n\tHardware Components: {system.Count}" +
-                              $"\n\tSoftware Components: {system.}");
+                              $"\n\tSoftware Components: {system.Sum(x => x.GetListOfSoftware().Count)}" +
+                              $"\n\tTotal Operational Memory: {system.Sum(x => x.UsedMemory)} / {system.Sum(x => x.MaximumMemory)}" +
+                              $"\n\tTotal Capacity taken: {system.Sum(x=>x.UsedCapacity)} / {system.Sum(x=>x.MaximumCapacity)}");
         }
     }
 }
