@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ComponentLibrary
+﻿namespace ComponentLibrary.Software
 {
     public class ExpressSoftware : Software
     {
-        public ExpressSoftware(string name, int capacityConsumption, int memoryConsumption)
+        private string type;
+
+        public ExpressSoftware(string name, int capacityConsumption, int memoryConsumption) : base(name, capacityConsumption, memoryConsumption)
         {
-            this.Name = name;
-            this.Type = "Express";
-            this.CapacityConsumption = capacityConsumption;
-            this.MemoryConsumption = memoryConsumption * 2;
+            this.MemoryConsumption = memoryConsumption;
+            this.type = "Express";
+        }
+        
+        public override int MemoryConsumption
+        {
+            get => base.MemoryConsumption;
+            protected set => base.MemoryConsumption = value * 2;
         }
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace ComponentLibrary
+namespace ComponentLibrary.Hardware
 {
     public class Hardware
     {
@@ -13,7 +9,7 @@ namespace ComponentLibrary
         private int maximumMemory;
         private int usedCapacity;
         private int usedMemory;
-        private List<Software> listOfInstalledSoftware;
+        private List<Software.Software> listOfInstalledSoftware;
 
         protected Hardware(string name, int maximumCapacity, int maximumMemory)
         {
@@ -22,7 +18,7 @@ namespace ComponentLibrary
             MaximumMemory = maximumMemory;
             UsedCapacity = 0;
             UsedMemory = 0;
-            ListOfInstalledSoftware = new List<Software>();
+            ListOfInstalledSoftware = new List<Software.Software>();
         }
 
         public string Name { get; private set; }
@@ -30,19 +26,19 @@ namespace ComponentLibrary
         public virtual int MaximumMemory { get; protected set; }
         public int UsedCapacity { get; set; }
         public int UsedMemory { get; set; }
-        public List<Software> ListOfInstalledSoftware { get; set; }
+        public List<Software.Software> ListOfInstalledSoftware { get; set; }
 
-        public void RegisterSoftwareComponent(Software software)
+        public void RegisterSoftwareComponent(Software.Software software)
         {
             ListOfInstalledSoftware.Add(software);
         }
 
-        public void RemoveSoftwareComponent(Software software)
+        public void RemoveSoftwareComponent(Software.Software software)
         {
             ListOfInstalledSoftware.Remove(software);
         }
 
-        public List<Software> GetListOfSoftware()
+        public List<Software.Software> GetListOfSoftware()
         {
             return ListOfInstalledSoftware;
         }

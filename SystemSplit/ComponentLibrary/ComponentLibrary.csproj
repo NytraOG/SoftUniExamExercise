@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentManager.cs" />
     <Compile Include="Software\ExpressSoftware.cs" />
     <Compile Include="Hardware\Hardware.cs" />
     <Compile Include="Hardware\HeavyHardware.cs" />
