@@ -12,7 +12,7 @@ namespace SystemSplit
     {
         static void Main(string[] args)
         {
-            List<Hardware> theSystem = new List<Hardware>();
+            List<Hardware> system = new List<Hardware>();
             string command = Console.ReadLine();
 
         }

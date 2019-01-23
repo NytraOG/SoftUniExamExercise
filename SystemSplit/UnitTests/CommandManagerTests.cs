@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ComponentLibrary;
 using ComponentLibrary.Hardware;
+using ComponentLibrary.Software;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -16,18 +18,18 @@ namespace UnitTests
         public void CheckingValueExtractionFromGivenCommandString()
         {
             //Arrange
-            List<Hardware> theSystem = new List<Hardware>();
+            List<Hardware> system = new List<Hardware>();
             string inputCommand = "RegisterHeavyHardware(SSD, 400, 400)";
             var expectedhardware = new HeavyHardware("SSD", 400, 400);
 
             //Act
             var commandManager = new CommandManager();
-            commandManager.RegisterHeavyHardware(theSystem, inputCommand);
+            commandManager.RegisterHeavyHardware(system, inputCommand);
 
             //Assert
-            Assert.AreEqual(theSystem[0].Name, expectedhardware.Name);
-            Assert.AreEqual(theSystem[0].MaximumCapacity, expectedhardware.MaximumCapacity);
-            Assert.AreEqual(theSystem[0].MaximumMemory, expectedhardware.MaximumMemory);
+            Assert.AreEqual(system[0].Name, expectedhardware.Name);
+            Assert.AreEqual(system[0].MaximumCapacity, expectedhardware.MaximumCapacity);
+            Assert.AreEqual(system[0].MaximumMemory, expectedhardware.MaximumMemory);
         }
 
         [TestMethod]
@@ -40,12 +42,29 @@ namespace UnitTests
 
             //Act
             var commandManager = new CommandManager();
-            commandManager.RegisterPowerHardware(theSystem,inputCommand);
+            commandManager.RegisterPowerHardware(theSystem, inputCommand);
 
             //Assert
             Assert.AreEqual(theSystem[0].Name, expectedHardware.Name);
-            Assert.AreEqual(theSystem[0].MaximumCapacity,expectedHardware.MaximumCapacity);
-            Assert.AreEqual(theSystem[0].MaximumMemory,expectedHardware.MaximumMemory);
+            Assert.AreEqual(theSystem[0].MaximumCapacity, expectedHardware.MaximumCapacity);
+            Assert.AreEqual(theSystem[0].MaximumMemory, expectedHardware.MaximumMemory);
+        }
+
+        [TestMethod]
+        public void ChecksIfSoftwareAddsToHardwareObjects()
+        {
+            //Arrange
+            var mockHardware = new PowerHardware("SSD", 300, 300);
+            var expectedName = "test";
+            var expectedCapacity = 50;
+            var expectedMemory = 100;
+
+            //Act
+
+            //Assert
+            Assert.AreEqual(expectedName,mockHardware.ListOfInstalledSoftware[0].Name);
+            Assert.AreEqual(expectedCapacity, mockHardware.ListOfInstalledSoftware[0].CapacityConsumption);
+            Assert.AreEqual(expectedMemory, mockHardware.ListOfInstalledSoftware[0].MemoryConsumption);
         }
     }
 }

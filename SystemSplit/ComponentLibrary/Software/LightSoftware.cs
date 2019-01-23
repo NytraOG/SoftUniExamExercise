@@ -4,7 +4,7 @@
     {
         private string type;
 
-        public LightSoftware(string name, int capacityConsumption, int memoryConsumption) : base(name, capacityConsumption, memoryConsumption)
+        public LightSoftware(string name, string nameHardware, int capacityConsumption, int memoryConsumption) : base(name, nameHardware, capacityConsumption, memoryConsumption)
         {
             this.CapacityConsumption = capacityConsumption;
             this.MemoryConsumption = memoryConsumption;
