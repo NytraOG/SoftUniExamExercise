@@ -9,15 +9,42 @@ namespace ComponentLibrary
     public class Hardware
     {
         private string name;
-        private string type;
         private int maximumCapacity;
         private int maximumMemory;
-        private List<Software> listOfInstalledSoftware = new List<Software>();
+        private int usedCapacity;
+        private int usedMemory;
+        private List<Software> listOfInstalledSoftware;
 
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int MaximumCapacity { get; set; }
-        public int MaximumMemory { get; set; }
+        protected Hardware(string name, int maximumCapacity, int maximumMemory)
+        {
+            Name = name;
+            MaximumCapacity = maximumCapacity;
+            MaximumMemory = maximumMemory;
+            UsedCapacity = 0;
+            UsedMemory = 0;
+            ListOfInstalledSoftware = new List<Software>();
+        }
+
+        public string Name { get; private set; }
+        public virtual int MaximumCapacity { get; protected set; }
+        public virtual int MaximumMemory { get; protected set; }
+        public int UsedCapacity { get; set; }
+        public int UsedMemory { get; set; }
         public List<Software> ListOfInstalledSoftware { get; set; }
+
+        public void RegisterSoftwareComponent(Software software)
+        {
+            ListOfInstalledSoftware.Add(software);
+        }
+
+        public void RemoveSoftwareComponent(Software software)
+        {
+            ListOfInstalledSoftware.Remove(software);
+        }
+
+        public List<Software> GetListOfSoftware()
+        {
+            return ListOfInstalledSoftware;
+        }
     }
 }

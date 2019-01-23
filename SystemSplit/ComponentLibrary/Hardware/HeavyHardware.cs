@@ -8,12 +8,25 @@ namespace ComponentLibrary
 {
     public class HeavyHardware : Hardware
     {
-        public HeavyHardware(string name, int maximumCapacity, int maximumMemory)
+        private string type;
+
+        public HeavyHardware(string name, int maximumCapacity, int maximumMemory) : base(name, maximumCapacity, maximumMemory)
         {
-            this.Name = name;
-            this.Type = "Heavy";
-            this.MaximumCapacity = maximumCapacity * 2;
-            this.MaximumMemory = maximumMemory * 3 / 4;
+            this.MaximumCapacity = maximumCapacity;
+            this.MaximumMemory = maximumMemory;
+            this.type = "Heavy";
+        }
+
+        public override int MaximumCapacity
+        {
+            get => base.MaximumCapacity;
+            protected set => base.MaximumCapacity = value * 2;
+        }
+
+        public override int MaximumMemory
+        {
+            get => base.MaximumMemory;
+            protected set => base.MaximumMemory = value * 3 / 4;
         }
     }
 }

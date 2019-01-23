@@ -10,12 +10,12 @@ namespace ComponentLibrary
     {
         public void RegisterHeavyHardware(string name, int capacity, int memory)
         {
-
+            var heavyHardware = new HeavyHardware(name, capacity, memory);
         }
 
         public void RegisterPowerHardware(string name, int capacity, int memory)
         {
-
+            var powerHardware = new PowerHardware(name, capacity, memory);
         }
 
         public void RegisterExpressSoftware(string name, int capacityConsumption, int memoryConsumption)
