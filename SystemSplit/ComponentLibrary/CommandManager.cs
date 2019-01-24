@@ -74,15 +74,15 @@ namespace ComponentLibrary
 
             if (system.Any(s => s.Name == nameHardware))
             {
-                var hardware = system.First(x => x.Name == nameHardware);
+                var hardware = system.First(s => s.Name == nameHardware);
 
                 if (hardware.MaximumCapacity - hardware.UsedCapacity >= capacity && hardware.MaximumMemory - hardware.UsedMemory >= memory)
                 {
-                    var sofware = new LightSoftware(name, nameHardware, capacity, memory);
+                    var software = new LightSoftware(name, nameHardware, capacity, memory);
 
-                    hardware.ListOfInstalledSoftware.Add(sofware);
-                    hardware.UsedCapacity += capacity;
-                    hardware.UsedMemory += memory;
+                    hardware.RegisterSoftwareComponent(software);
+                    hardware.UsedCapacity += software.CapacityConsumption;
+                    hardware.UsedMemory += software.MemoryConsumption;
                 }
             }
         }
@@ -113,8 +113,6 @@ namespace ComponentLibrary
 
         public void Analyze(List<Hardware.Hardware> system)
         {
-            Console.Clear();
-
             Console.WriteLine($"  \tSystem Analysis:" +
                               $"\n\tHardware Components: {system.Count}" +
                               $"\n\tSoftware Components: {system.Sum(x => x.GetListOfSoftware().Count)}" +

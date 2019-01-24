@@ -13,10 +13,16 @@ namespace SystemSplit
     {
         static void Main(string[] args)
         {
+            //string[] words = { "bot", "apple", "apricot" };
+            //int minimalLength = words
+            //    .Where(w => w.StartsWith("a"))
+            //    .Min(w => w.Length);
+            //Console.WriteLine(minimalLength);
+
             List<Hardware> system = new List<Hardware>();
             var commandManager = new CommandManager();
             string command;
-
+                
             do
             {
                 string commandExpression = null;
