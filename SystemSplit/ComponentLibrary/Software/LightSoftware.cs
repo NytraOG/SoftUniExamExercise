@@ -2,13 +2,11 @@
 {
     public class LightSoftware : Software
     {
-        private string type;
-
         public LightSoftware(string name, string nameHardware, int capacityConsumption, int memoryConsumption) : base(name, nameHardware, capacityConsumption, memoryConsumption)
         {
             this.CapacityConsumption = capacityConsumption;
             this.MemoryConsumption = memoryConsumption;
-            this.type = "Light";
+            this.Type = "Light";
         }
 
         public override int CapacityConsumption

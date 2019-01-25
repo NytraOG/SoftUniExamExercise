@@ -2,13 +2,11 @@
 {
     public class PowerHardware : Hardware
     {
-        private string type;
-
         public PowerHardware(string name, int maximumCapacity, int maximumMemory) : base(name, maximumCapacity, maximumMemory)
         {
             this.MaximumCapacity = maximumCapacity;
             this.MaximumMemory = maximumMemory;
-            this.type = "Power";
+            this.Type = "Power";
         }
 
         public override int MaximumCapacity

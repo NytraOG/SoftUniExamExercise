@@ -117,7 +117,31 @@ namespace ComponentLibrary
                               $"\n\tHardware Components: {system.Count}" +
                               $"\n\tSoftware Components: {system.Sum(x => x.GetListOfSoftware().Count)}" +
                               $"\n\tTotal Operational Memory: {system.Sum(x => x.UsedMemory)} / {system.Sum(x => x.MaximumMemory)}" +
-                              $"\n\tTotal Capacity taken: {system.Sum(x=>x.UsedCapacity)} / {system.Sum(x=>x.MaximumCapacity)}");
+                              $"\n\tTotal Capacity taken: {system.Sum(x => x.UsedCapacity)} / {system.Sum(x => x.MaximumCapacity)}");
+        }
+
+        public void System_Split(List<Hardware.Hardware> system)
+        {
+            string installedSoftware = "";
+
+            foreach (var hardware in system)
+            {
+                foreach (var software in hardware.GetListOfSoftware())
+                {
+                    installedSoftware += $"{software.Name}, ";
+                }
+
+                Console.WriteLine($"  \tFinal System Analysis:" +
+                                  $"\n\tHardware Component: {hardware.Name}" +
+                                  $"\n\tHardware Type: {hardware.Type}" +
+                                  $"\n\tInstalled Express Software: {hardware.GetListOfSoftware().Count(x => x.Type == "Express")}" +
+                                  $"\n\tInstalled Light Software: {hardware.GetListOfSoftware().Count(x => x.Type == "Light")}" +
+                                  $"\n\tMemory Usage: {hardware.UsedMemory} / {hardware.MaximumMemory}" +
+                                  $"\n\tCapacity Usage: {hardware.UsedCapacity} / {hardware.MaximumCapacity}7" +
+                                  $"\n\tSoftware Components: {installedSoftware}");
+
+                installedSoftware = "";
+            }
         }
     }
 }

@@ -2,13 +2,11 @@
 {
     public class ExpressSoftware : Software
     {
-        private string type;
-
         public ExpressSoftware(string name, string nameHardware, int capacityConsumption, int memoryConsumption) 
             : base(name, nameHardware, capacityConsumption, memoryConsumption)
         {
             this.MemoryConsumption = memoryConsumption;
-            this.type = "Express";
+            this.Type = "Express";
         }
 
         public override int MemoryConsumption

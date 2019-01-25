@@ -5,6 +5,7 @@ namespace ComponentLibrary.Hardware
     public class Hardware
     {
         private string name;
+        private string type;
         private int maximumCapacity;
         private int maximumMemory;
         private int usedCapacity;
@@ -22,6 +23,7 @@ namespace ComponentLibrary.Hardware
         }
 
         public string Name { get; private set; }
+        public string Type { get; protected set; }
         public virtual int MaximumCapacity { get; protected set; }
         public virtual int MaximumMemory { get; protected set; }
         public int UsedCapacity { get; set; }
