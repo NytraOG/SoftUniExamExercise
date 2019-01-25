@@ -13,12 +13,15 @@ namespace SystemSplit
     {
         static void Main(string[] args)
         {
-            //string[] words = { "bot", "apple", "apricot" };
-            //int minimalLength = words
-            //    .Where(w => w.StartsWith("a"))
-            //    .Min(w => w.Length);
-            //Console.WriteLine(minimalLength);
-
+            /*
+             * RegisterPowerHardware(SSD,200,300)
+RegisterHeavyHardware(HDD,250,500)
+RegisterExpressSoftware(Windows10,HDD,150,100)
+RegisterExpressSoftware(Linux,SSD,100,300)
+RegisterLightSoftware(WinAMP,SSD,50,75)
+RegisterLightSoftware(Word,HDD,75,120)
+RegisterLightExpressSoftware(Excel,SSD,320,170)
+             */
             List<Hardware> system = new List<Hardware>();
             var commandManager = new CommandManager();
             string command;
@@ -49,6 +52,9 @@ namespace SystemSplit
                         break;
                     case "ReleaseSoftwareComponent":
                         commandManager.ReleaseSoftwareComponent(system, command);
+                        break;
+                    case "System split":
+                        commandManager.System_Split(system);
                         break;
                     case "Analyze":
                         commandManager.Analyze(system);

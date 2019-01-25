@@ -49,22 +49,5 @@ namespace UnitTests
             Assert.AreEqual(theSystem[0].MaximumCapacity, expectedHardware.MaximumCapacity);
             Assert.AreEqual(theSystem[0].MaximumMemory, expectedHardware.MaximumMemory);
         }
-
-        [TestMethod]
-        public void ChecksIfSoftwareAddsToHardwareObjects()
-        {
-            //Arrange
-            var mockHardware = new PowerHardware("SSD", 300, 300);
-            var expectedName = "test";
-            var expectedCapacity = 50;
-            var expectedMemory = 100;
-
-            //Act
-
-            //Assert
-            Assert.AreEqual(expectedName,mockHardware.ListOfInstalledSoftware[0].Name);
-            Assert.AreEqual(expectedCapacity, mockHardware.ListOfInstalledSoftware[0].CapacityConsumption);
-            Assert.AreEqual(expectedMemory, mockHardware.ListOfInstalledSoftware[0].MemoryConsumption);
-        }
     }
 }
