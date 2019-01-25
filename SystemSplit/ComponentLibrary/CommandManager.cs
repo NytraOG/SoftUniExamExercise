@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ComponentLibrary.Hardware;
 using ComponentLibrary.Software;
 
@@ -132,7 +129,7 @@ namespace ComponentLibrary
                     installedSoftware += $"{software.Name}, ";
                 }
 
-                
+
                 Console.WriteLine($"\n\tHardware Component: {hardware.Name}" +
                                   $"\n\tHardware Type: {hardware.Type}" +
                                   $"\n\tInstalled Express Software: {hardware.GetListOfSoftware().Count(x => x.Type == "Express")}" +

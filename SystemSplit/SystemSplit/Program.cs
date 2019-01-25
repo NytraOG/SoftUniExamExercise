@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ComponentLibrary;
 using ComponentLibrary.Hardware;
 
@@ -13,15 +9,6 @@ namespace SystemSplit
     {
         static void Main(string[] args)
         {
-            /*
-             * RegisterPowerHardware(SSD,200,300)
-RegisterHeavyHardware(HDD,250,500)
-RegisterExpressSoftware(Windows10,HDD,150,100)
-RegisterExpressSoftware(Linux,SSD,100,300)
-RegisterLightSoftware(WinAMP,SSD,50,75)
-RegisterLightSoftware(Word,HDD,75,120)
-RegisterLightExpressSoftware(Excel,SSD,320,170)
-             */
             List<Hardware> system = new List<Hardware>();
             var commandManager = new CommandManager();
             string command;
